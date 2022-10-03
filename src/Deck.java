@@ -4,8 +4,10 @@ import java.util.Collections;
 public class Deck {
     //一副扑克牌
     private ArrayList<Card> deck;
+
     public Deck(){ 
         deck=new ArrayList<Card>();
+
         for(int s=0;s<4;s++){//四种花色
             for(int r=0;r<13;r++){//13个数字
                 if(r==0){
@@ -26,8 +28,11 @@ public class Deck {
 
     public void setDeck(ArrayList<Card> deck) {
         this.deck = deck;
-    }
 
+    }
+    public int getDeckSize(){
+        return deck.size();
+    }
     public ArrayList<Card> getDeck() {
         return deck;
     }

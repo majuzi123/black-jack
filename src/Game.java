@@ -18,6 +18,7 @@ public class Game {
     JButton btnStand;
     JButton btnDouble;
     JButton btnExit;
+    private int isfirstAdd;
     public Game(JFrame f){
         deck=new Deck();
         deck.shuffleDeck();//洗牌
@@ -160,9 +161,11 @@ public class Game {
         hand.add(deck.getCard(0));
         deck.removeCard(0);
         faceDown=true;
+        isfirstAdd++;
 }
 
     public void startGame(){//开始游戏
+        isfirstAdd=0;
         for(int i=0;i<2;i++){
             house.add(deck.getCard(i));//首先给庄家发两张牌
         }
@@ -194,7 +197,14 @@ public class Game {
         btnDouble.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                if(isfirstAdd==0)
+                {Tester.douBle();
+                    isfirstAdd++;
+                }
+              else {
+                    JOptionPane.showMessageDialog(null,"游戏已经开始，您无法再加倍","提示",JOptionPane.INFORMATION_MESSAGE);
+                    System.out.println("游戏已经开始，您无法再加倍");
+                }
             }
         });
         btnStand.addActionListener(new ActionListener() {

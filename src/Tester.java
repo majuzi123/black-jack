@@ -31,6 +31,13 @@ public class Tester {
         menuFrame.add(beginningComponent);
         menuFrame.setVisible(true);
     }
+    public static void douBle(){
+        GameComponent.currentBet*=2;
+        JOptionPane.showMessageDialog(null,"您的赌注是: " + GameComponent.currentBet + "，" + " 如果您打败了庄家，您的余额将增加" + GameComponent.currentBet*2 +
+                "; 如果庄家打败您，您的余额将减少 " + GameComponent.currentBet + ".","游戏开始",JOptionPane.INFORMATION_MESSAGE);
+        System.out.println("您的赌注是: " + GameComponent.currentBet + "，" + " 如果您打败了庄家，您的余额将增加" + GameComponent.currentBet*2 +
+                "; 如果庄家打败您，您的余额将减少 " + GameComponent.currentBet + ".");
+    }
     public static Thread gameRefreshThread = new Thread() {
         public void run(){
             while(true){

@@ -64,11 +64,11 @@ public class Card {
         BufferedImage deckImg= ImageIO.read(new File("images/cardSpriteSheet.png"));
         int imgWidth=950;
         int imgHeight=392;
-        BufferedImage[][] cardPuctures=new BufferedImage[4][13];
+        BufferedImage[][] cardPictures=new BufferedImage[4][13];
         BufferedImage backOfACard=ImageIO.read(new File("images/backsideOfACard.jpg"));
         for(int c=0;c<4;c++){
             for (int r=0;r<13;r++){
-                cardPuctures[c][r]=deckImg.getSubimage(r*imgWidth/13, c*imgHeight/4, imgWidth/13, imgHeight/4);
+                cardPictures[c][r]=deckImg.getSubimage(r*imgWidth/13, c*imgHeight/4, imgWidth/13, imgHeight/4);
             }
         }
         if(houseTurn){
@@ -82,7 +82,7 @@ public class Card {
             g2.drawImage(backOfACard,xPosition,yPosition,null);
         }
         else{
-            g2.drawImage(cardPuctures[suit][rank],xPosition,yPosition,null);
+            g2.drawImage(cardPictures[suit][rank],xPosition,yPosition,null);
         }
     }
 }

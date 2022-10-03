@@ -55,7 +55,7 @@ public class OptionComponent extends JComponent implements ActionListener {
            Tester.gameRefreshThread.start();
            Tester.gameCheckThread.start();
         }
-        else if(selectedButton==btnPlay){
+        else if(selectedButton==btnHelp){
          JOptionPane.showMessageDialog(this,"21点的目标是在不超过21点的情况下击败庄家。" +
                  "\nA的值为1或11，J、Q、K的值为10，其余的牌即自己的牌面值，谁最后的值好谁就赢。" +
                  "\n每个玩家都有两张牌开始，其中一张庄家的牌一直隐藏到最后" +

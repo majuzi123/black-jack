@@ -133,10 +133,12 @@ public void setResponse(int response){
              System.out.println("您未选择金额，因此，投注金额默认设置为1.");
 
          }
+         JOptionPane.showMessageDialog(this,"您的赌注是: " + currentBet + "，" + " 如果您打败了庄家，您的余额将增加" + currentBet*2 +
+                 "; 如果庄家打败您，您的余额将减少 " + currentBet + ".","游戏开始",JOptionPane.INFORMATION_MESSAGE);
          System.out.println("您的赌注是: " + currentBet + "，" + " 如果您打败了庄家，您的余额将增加" + currentBet*2 +
                  "; 如果庄家打败您，您的余额将减少 " + currentBet + ".");
          //playChipsSettle(); //播放音乐
-         Tester.newGame.startGame(); 
+         Tester.newGame.startGame();
      }
     }
 
