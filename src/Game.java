@@ -222,12 +222,35 @@ public class Game {
                         rest();
                         roundOver = true;
                     }
-                    else {
+                    else if(getSumOfHand(player)<getSumOfHand(house)){
                         faceDown = false;
                         houseWon = true;
                         JOptionPane.showMessageDialog(frame, "很遗憾！庄家取胜!");
                         rest();
                         roundOver = true;
+                    }
+                    else{
+                        if(player.size()<house.size()){
+                            faceDown = false;
+                            houseWon = false;
+                            JOptionPane.showMessageDialog(frame, "恭喜您！您获胜了!");
+                            rest();
+                            roundOver = true;
+                        }
+                        else if(player.size()>house.size()){
+                            faceDown = false;
+                            houseWon = true;
+                            JOptionPane.showMessageDialog(frame, "很遗憾！庄家取胜!");
+                            rest();
+                            roundOver = true;
+                        }
+                        else {
+                            faceDown = false;
+                            houseWon = true;
+                            JOptionPane.showMessageDialog(frame, "平局，但您已失去赌注！");
+                            rest();
+                            roundOver = true;
+                        }
                     }
                 }
             }
