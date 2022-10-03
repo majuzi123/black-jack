@@ -15,7 +15,7 @@ public class Deck {
                     deck.add(card);
                 }
                 else if(r>=9){
-                    Card card=new Card(s,r,11);
+                    Card card=new Card(s,r,10);
                     deck.add(card);
                 }
                 else {
