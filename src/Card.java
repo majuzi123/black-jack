@@ -77,7 +77,7 @@ public class Card {
         else{
             yPosition=400;
         }
-        xPosition=500+75*cardNumber;
+        xPosition=490+75*cardNumber;
         if(faceDown){
             g2.drawImage(backOfACard,xPosition,yPosition,null);
         }

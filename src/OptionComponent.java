@@ -23,21 +23,24 @@ public class OptionComponent extends JComponent implements ActionListener {
         try{
             backgroundImage= ImageIO.read(new File("images/background.png"));
         }catch (IOException e){}
-       g2.drawImage(backgroundImage,0,0,null);
-        g2.setFont(new Font("宋体", Font.BOLD, 100)); //In these codes, we will add the title of our game and its font and color.
+        g2.drawImage(backgroundImage,0,0,null);
+
+        g2.setFont(new Font("Comic Sans MS", Font.BOLD, 100)); //In these codes, we will add the title of our game and its font and color.
         g2.setColor(Color.WHITE);
-        g2.drawString("欢迎来到", 290, 140);
-        g2.drawString("BLACKJACK!", 290, 260);
+        g2.drawString("Welcome", 380, 100);
+        g2.drawString("to", 530, 185);
+        g2.drawString("BLACKJACK!", 290, 265);
+        g2.setFont(new Font("宋体", Font.BOLD, 25));
+        g2.drawString("点击开始，让我们进入游戏吧...", 400, 580);
+
+        btnPlay.setBounds(500, 320, 140, 60);
+        btnExit.setBounds(500, 395, 140, 60);
+        btnHelp.setBounds(500, 470, 140, 60);
 
 
-        btnPlay.setBounds(400, 300, 300, 80);
-        btnExit.setBounds(400, 400, 300, 80);
-        btnHelp.setBounds(400, 500, 300, 80);
-
-
-        btnPlay.setFont(new Font("宋体", Font.BOLD, 40));
-        btnExit.setFont(new Font("宋体", Font.BOLD, 40));
-        btnHelp.setFont(new Font("宋体", Font.BOLD, 40));
+        btnPlay.setFont(new Font("宋体", Font.BOLD, 25));
+        btnExit.setFont(new Font("宋体", Font.BOLD, 25));
+        btnHelp.setFont(new Font("宋体", Font.BOLD, 25));
 
         super.add(btnPlay);
         super.add(btnExit);

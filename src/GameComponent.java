@@ -43,23 +43,23 @@ public class GameComponent extends JComponent implements MouseListener {
         g2.drawImage(logo,510,200,null);
         g2.drawImage(chip,50,300,null);
         g2.setColor(Color.WHITE);
-        g2.setFont(new Font("宋体",Font.BOLD,30));//设置字体
-        g2.drawString("庄家",515,50);
-        g2.drawString("玩家", 515, 380);
-        g2.drawString("庄家赢了: ", 50, 100);
+        g2.setFont(new Font("宋体",Font.BOLD,35));//设置字体
+        g2.drawString("庄家",530,50);
+        g2.drawString("玩家", 530, 380);
+        g2.drawString("庄家赢了: ", 35, 100);
         g2.drawString(Integer.toString(houseScore), 300, 100); //展示得分
-        g2.drawString("玩家赢了: ", 50, 150);
+        g2.drawString("玩家赢了: ", 35, 150);
         g2.drawString(Integer.toString(playerScore), 300, 150);
-        g2.setFont(new Font("宋体", Font.BOLD, 15));
-        g2.drawString("每一回合您需要先开始", 50, 250);
-        g2.drawString("请点击筹码图标输入您要下注的金额（不超过20元）", 50, 270);
-        //g2.drawString("The best gaming experience is ", 830, 550);
-        //g2.drawString("when you play with sound on!", 830, 570);
-        g2.setFont(new Font("宋体", Font.BOLD, 20));
-        g2.drawString("您的余额: " + currentBalance, 50, 570);
+
+        g2.setFont(new Font("宋体", Font.BOLD, 17));
+        g2.drawString("！每一回合开始您需要先下注！", 45, 250);
+        g2.drawString("请点击筹码图标选择您要下注的金额", 35, 270);
+
+        g2.setFont(new Font("宋体", Font.BOLD, 25));
+        g2.drawString("您的余额: " + currentBalance, 45, 570);
         Calendar cal=Calendar.getInstance();
         SimpleDateFormat sdf=new SimpleDateFormat("HH:mm:ss");
-        g2.drawString(sdf.format(cal.getTime()),1020,20);//显示时间
+        g2.drawString(sdf.format(cal.getTime()),980,20);//显示时间
         try{//庄家回合
             for(int i=0;i<house.size();i++){
                 if(i==0){
@@ -137,7 +137,6 @@ public void setResponse(int response){
                  "; 如果庄家打败您，您的余额将减少 " + currentBet + ".","游戏开始",JOptionPane.INFORMATION_MESSAGE);
          System.out.println("您的赌注是: " + currentBet + "，" + " 如果您打败了庄家，您的余额将增加" + currentBet*2 +
                  "; 如果庄家打败您，您的余额将减少 " + currentBet + ".");
-         //playChipsSettle(); //播放音乐
          Tester.newGame.startGame();
      }
     }
