@@ -22,7 +22,7 @@ public class GameComponent extends JComponent implements MouseListener {
     public static boolean betMode=false;//玩家是否已经进入了投注模式
     private int currentBalance;//玩家现在的余额
     public static int currentBet;//现在的赌金
-    public String[] options = new String[] {"1", "5", "10", "25", "100"};
+    public String[] options = new String[] {"20", "40", "60", "80", "100"};
     public GameComponent(ArrayList<Card> ho,ArrayList<Card> pl){
         house=ho;
         player=pl;
@@ -97,7 +97,6 @@ public class GameComponent extends JComponent implements MouseListener {
 public void setResponse(int response){
         currentBet= Integer.parseInt(options[response]);
         currentBalance-= Integer.parseInt(options[response]);
-        //System.out.println(currentBalance);
 }
     public void mousePressed(MouseEvent mouseEvent) {//鼠标点击事件
      int mouseX=mouseEvent.getX();
@@ -128,15 +127,14 @@ public void setResponse(int response){
          if(response>=0 && response<=4){
          setResponse(response);}
          else{//如果用户什么都没选，且关闭了窗口，我们将投注金额设置为1
-             currentBet=1;
-             currentBalance-=1;
-             System.out.println("您未选择金额，因此，投注金额默认设置为1.");
-
+             currentBet=20;
+             currentBalance-=20;
+             System.out.println("您未选择金额，因此，投注金额默认设置为20.");
          }
-         JOptionPane.showMessageDialog(this,"您的赌注是: " + currentBet + "，" + " 如果您打败了庄家，您的余额将增加" + currentBet*2 +
-                 "; 如果庄家打败您，您的余额将减少 " + currentBet + ".","游戏开始",JOptionPane.INFORMATION_MESSAGE);
-         System.out.println("您的赌注是: " + currentBet + "，" + " 如果您打败了庄家，您的余额将增加" + currentBet*2 +
-                 "; 如果庄家打败您，您的余额将减少 " + currentBet + ".");
+         JOptionPane.showMessageDialog(this,"您的赌注是: " + currentBet + "元，赔率1:1\n" + "如果您打败了庄家，您将获得: " + currentBet*2 +
+                 "元; 如果庄家打败您，您将输掉赌注. ","游戏开始",JOptionPane.INFORMATION_MESSAGE);
+         System.out.println("您的赌注是: " + currentBet + "元，赔率1:1\n" + "如果您打败了庄家，您将获得: " + currentBet*2 +
+                 "元; 如果庄家打败您，您将输掉赌注. ");
          Tester.newGame.startGame();
      }
     }

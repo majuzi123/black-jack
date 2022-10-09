@@ -118,26 +118,28 @@ public class Game {
     }
     public void checkHand(ArrayList<Card> hand){//测试两方的手牌
         if(hand.equals(player)){//玩家的手牌
-            if(getSumOfHand(hand)==21){//玩家blackjack赢
+            if(getSumOfHand(hand)==21 && hand.size()==2){//玩家blackjack赢
                 faceDown=false;
                 houseWon=false;
-                JOptionPane.showMessageDialog(frame,"您以BLACKJACK获胜！","游戏结果",JOptionPane.INFORMATION_MESSAGE);
+                GameComponent.currentBet=GameComponent.currentBet+(int)(0.25*GameComponent.currentBet);
+                JOptionPane.showMessageDialog(frame,"您以BLACKJACK获胜！赔率增加到1.5！","游戏结果",JOptionPane.INFORMATION_MESSAGE);
                 rest();
                 roundOver=true;
             }
             else if(getSumOfHand(hand)>21){//玩家爆掉
                 faceDown=false;
                 houseWon=true;
-                JOptionPane.showMessageDialog(frame,"您已经爆掉！您输掉了比赛！","游戏结果",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(frame,"您已经爆掉！输掉了比赛！","游戏结果",JOptionPane.INFORMATION_MESSAGE);
                 rest();
                 roundOver=true;
             }
         }
         else{//庄家的手牌
-            if(getSumOfHand(hand)==21){//庄家blackjack赢
+            if(getSumOfHand(hand)==21 && hand.size()==2){//庄家blackjack赢
                 faceDown=false;
                 houseWon=true;
-                JOptionPane.showMessageDialog(frame,"庄家以BLACKJACK获胜！","游戏结果",JOptionPane.INFORMATION_MESSAGE);
+                GameComponent.currentBet=GameComponent.currentBet+(int)(0.25*GameComponent.currentBet);
+                JOptionPane.showMessageDialog(frame,"庄家以BLACKJACK获胜！赔率增加到1.5！","游戏结果",JOptionPane.INFORMATION_MESSAGE);
                 rest();
                 roundOver=true;
             }
@@ -162,7 +164,7 @@ public class Game {
         deck.removeCard(0);
         faceDown=true;
         isfirstAdd++;
-}
+    }
 
     public void startGame(){//开始游戏
         isfirstAdd=0;
@@ -247,8 +249,8 @@ public class Game {
                         }
                         else {
                             faceDown = false;
-                            houseWon = true;
-                            JOptionPane.showMessageDialog(frame, "平局，但您已失去赌注！","游戏结果",JOptionPane.INFORMATION_MESSAGE);
+                            houseWon = false;
+                            JOptionPane.showMessageDialog(frame, "平局，您不会失去赌注！","游戏结果",JOptionPane.INFORMATION_MESSAGE);
                             rest();
                             roundOver = true;
                         }
@@ -260,9 +262,9 @@ public class Game {
 
     public static void douBle(){
         GameComponent.currentBet*=2;
-        JOptionPane.showMessageDialog(null,"您的赌注是: " + GameComponent.currentBet + "，" + " 如果您打败了庄家，您的余额将增加" + GameComponent.currentBet*2 +
-                "; 如果庄家打败您，您的余额将减少 " + GameComponent.currentBet + ".","提示",JOptionPane.INFORMATION_MESSAGE);
-        System.out.println("您的赌注是: " + GameComponent.currentBet + "，" + " 如果您打败了庄家，您的余额将增加" + GameComponent.currentBet*2 +
-                "; 如果庄家打败您，您的余额将减少 " + GameComponent.currentBet + ".");
+        JOptionPane.showMessageDialog(null,"赌注加倍！现在赌注是: " + GameComponent.currentBet + "元，赔率1:1\n" + "如果您打败了庄家，您将获得: " + GameComponent.currentBet*2 +
+                "元; 如果庄家打败您，您将输掉赌注.","提示",JOptionPane.INFORMATION_MESSAGE);
+        System.out.println("赌注加倍！现在赌注是: " + GameComponent.currentBet + "元，赔率1:1\n" + "如果您打败了庄家，您将获得: " + GameComponent.currentBet*2 +
+                "元; 如果庄家打败您，您将输掉赌注.");
     }
 }
