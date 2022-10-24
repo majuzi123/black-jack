@@ -1,4 +1,3 @@
-import javax.imageio.IIOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -53,10 +52,10 @@ public class OptionComponent extends JComponent implements ActionListener {
             System.exit(0);
         }
         else if(selectedButton==btnPlay){
-           Tester.currentState=Tester.STATE.GAME;
-           Tester.menuFrame.dispose();
-           Tester.gameRefreshThread.start();
-           Tester.gameCheckThread.start();
+           UIController.currentState= UIController.STATE.GAME;
+           UIController.menuFrame.dispose();
+           UIController.gameRefreshThread.start();
+           UIController.gameCheckThread.start();
         }
         else if(selectedButton==btnHelp){
          JOptionPane.showMessageDialog(this,"21点的目标是在不超过21点的情况下击败庄家。" +

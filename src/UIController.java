@@ -1,13 +1,13 @@
 import javax.swing.*;
 
-public class Tester {
+public class UIController {
     public static JFrame menuFrame=new JFrame();
     public static JFrame gameFrame=new JFrame();
     private static int playScore=0;
     private static int houseScore=0;
     public static int currentBalance=1000;
-    public static Game newGame=new Game(gameFrame);
-    private static boolean isFirstTime=true;//判断是否为第一次比赛
+    public static BlackJackGame newGame=new BlackJackGame(gameFrame);
+    private static boolean isFirstTime=true;//判断是否为第一次进入游戏
 
     public static enum STATE{
         MENU,
@@ -51,11 +51,10 @@ public class Tester {
                    else {
                        playScore++;
                        currentBalance+=GameComponent.currentBet*2;
-
                    }
                    gameFrame.getContentPane().removeAll();
-                   newGame=new Game(gameFrame);
-                   newGame.formGame();
+                   newGame=new BlackJackGame(gameFrame);
+                   newGame.formRound();
                    isFirstTime=false;
                }
            }
