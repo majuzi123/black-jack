@@ -16,11 +16,11 @@ public class UIController {
     public static STATE currentState=STATE.MENU;
     public static void main(String[] args) throws InterruptedException{
         if(currentState==STATE.MENU){
-            openMenu();
+            open();
         }
     }
 
-    private static void openMenu() {
+    private static void open() {
         menuFrame.setTitle("BLACKJACK!");
         menuFrame.setSize(1130, 665);
         menuFrame.setLocationRelativeTo(null);
